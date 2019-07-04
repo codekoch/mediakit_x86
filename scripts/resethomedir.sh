@@ -18,16 +18,11 @@ case "$1" in
      start)
          if [ -d $TMPDIR/$USER ]
          then
-         if [ -d $TMPDIR/$USER/Arbeitsfläche ]
-         then
                 sudo rm -r -f /home/$USER
                 sudo cp -a -r -f $TMPDIR/$USER /home/
                 sudo chown -R $USER:users /home/$USER
                 sudo rm -r -f /tmp/*
                 echo "The homedir of $USER is now resetted!"
-         else
-                echo "$TMPDIR/$USER exists, but the others not! For safety reasons, the script has not been executed!"
-         fi
          else 
                 echo "The Backup-Directory doesn't exists!"
          fi
