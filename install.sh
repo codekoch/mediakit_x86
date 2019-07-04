@@ -15,16 +15,21 @@ echo -e "\\033[34;1m${@}\033[0m"
 }
 
 version=`git tag | tail -1`
-yellow_msg "Installing mediakit_x86 Version $version..."
 debiansystems=`command -v apt-get`
-exit
+if [ -z $debiansystems ]; then
+  red_msg "This install script works only on debian like systems (Debian, XUbuntu, Ubuntu etc.) with apt-get command!"  
+  exit
+fi 
 
+yellow_msg "Installing mediakit_x86 Version $version..."
 
 green_msg "install and configure everything..."
 
 ######## install mediakit layout and user
 yellow_msg "-install mediakit layout and mediakit user..."
 scripts/layoutAndUser.sh
+
+exit
 
 ######## install router and miracast ability
 yellow_msg "-install router and miracast ability..."
