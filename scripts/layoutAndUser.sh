@@ -32,9 +32,9 @@ echo " "
 usermod -a -G adm,dialout,fax,cdrom,floppy,tape,dip,video,plugdev,fuse mk
 
 #### make directory including temporary changes
-install -d -o mk -g mk /home/.mk_rw
+sudo install -d -o mk -g mk /home/.mk_rw
 #### install aufs-layer on home directory
-backup /etc/fstab
+cp /etc/fstab /etc/fstab_old
 echo "none /home/mk aufs br:/home/.mk_rw:/home/mk 0 0" >> /etc/fstab
 
 #### xubuntu layout
@@ -42,7 +42,7 @@ sudo apt-get install xubuntu-desktop
 #### autologin mk
 sudo echo '[Seat:*]' > /etc/lightdm/lightdm.conf.d/90-autologin.conf
 sudo echo 'autologin-user=Benutzername" >> /etc/lightdm/lightdm.conf.d/90-autologin.conf
-sudo echo 'autologin-user-timeout=0' /etc/lightdm/lightdm.conf.d/90-autologin.conf
+sudo echo 'autologin-user-timeout=0' >> /etc/lightdm/lightdm.conf.d/90-autologin.conf
 exit
 #### setting up mediakit layout
 yellow_msg "->copying layout files..."

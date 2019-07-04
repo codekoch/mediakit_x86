@@ -27,7 +27,7 @@ green_msg "install and configure everything..."
 
 ######## install mediakit layout and user
 yellow_msg "-install mediakit layout and mediakit user..."
-scripts/layoutAndUser.sh
+sudo scripts/layoutAndUser.sh
 
 exit
 
