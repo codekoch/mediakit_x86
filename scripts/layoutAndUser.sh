@@ -41,9 +41,9 @@ EOF
 echo " "
 usermod -a -G adm,dialout,fax,cdrom,floppy,tape,dip,video,plugdev,fuse mk
 sudo cp scripts/resethomedir.sh /etc/init.d/
-chmod 777 /etc/init.d/resethomedir
+chmod 777 /etc/init.d/resethomedir.sh
 sudo update-rc.d resethomedir.sh defaults
-sudo /etc/init.d/resethomedir save
+sudo /etc/init.d/resethomedir.sh save
 
 yellow_msg "->DONE!"
 
