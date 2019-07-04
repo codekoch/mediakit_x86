@@ -58,16 +58,16 @@ sudo echo 'autologin-user-timeout=0' >> /etc/lightdm/lightdm.conf.d/90-autologin
 # Aufruf des cleanup-script nach dem Booten, damit 
 # keine untergeschobenen Dateien überdauern.
 # Aufruf des cleanup-script nach dem Login bzw. Logout
-for i in PostSession PostLogin; do
-  backup /etc/gdm/$i/Default
-cat <<-EOFC >/etc/gdm/$i/Default
-	#!/bin/sh
+#for i in PostSession PostLogin; do
+#  backup /etc/gdm/$i/Default
+#cat <<-EOFC >/etc/gdm/$i/Default
+#	#!/bin/sh
 
-	test "\$USER" = "mk" && /usr/local/bin/cleanup.sh \$0
-EOFC
-  # oben erzeugte Script die richtigen Rechte zuweisen
-  chmod 755 /etc/gdm/$i/Default
-done
+#	test "\$USER" = "mk" && /usr/local/bin/cleanup.sh \$0
+#EOFC
+#  # oben erzeugte Script die richtigen Rechte zuweisen
+#  chmod 755 /etc/gdm/$i/Default
+#done
 
 
 backup /etc/rc.local
@@ -77,7 +77,7 @@ cat <<-EOFD >/etc/rc.local
 	/usr/local/bin/cleanup-keinpasswort.sh \$0
 EOFD
 
- cleanup-script erzeugen, welches ...
+# cleanup-script erzeugen, welches ...
 #   1. .keinpasswort_rw reinigt und 
 #   2. das virtuelles Windows unveränderbar macht.
 backup /usr/local/bin/cleanup.sh
