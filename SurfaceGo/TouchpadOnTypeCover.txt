@@ -1,0 +1,22 @@
+To enable trackpad, first figure out what product you have. (the Type cover comes with 3 different ID's)
+
+to do this, open a terminal and type dmesg after connecting the type cover.
+Then look for the following output:
+
+usb 1-3: Product: Surface Type Cover
+usb 1-3: Manufacturer: Microsoft
+usb-1.3: New USB device found idVendor=045e, idProduct=07dc
+
+Once you have your productId, open /usr/share/X11/xorg.conf.d/50-synaptics.conf in your favourite editor and insert the following code:
+
+Code:
+Section "InputClass" 
+Identifier "Surface Pro 3 cover"
+MatchIsPointer "on"
+MatchDevicePath "/dev/input/event*"
+Driver "evdev"
+Option "vendor" "045e"
+Option "product" "07dc"  <--replace with your ID
+Option "IgnoreAbsoluteAxes" "True"
+EndSection
+reboot and you're good to go 
