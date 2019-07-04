@@ -74,7 +74,7 @@ backup /etc/rc.local
 cat <<-EOFD >/etc/rc.local
 	#!/bin/sh
 
-	/usr/local/bin/cleanup-keinpasswort.sh \$0
+	/usr/local/bin/cleanup.sh \$0
 EOFD
 
 # cleanup-script erzeugen, welches ...
@@ -125,7 +125,7 @@ cat <<-\$EOFE >/usr/local/bin/cleanup.sh
 $EOFE
 
 # oben erzeugte Script die richtigen Rechte zuweisen
-chmod 754 /usr/local/bin/cleanup.sh
+chmod 755 /usr/local/bin/cleanup.sh
 
 yellow_msg "->DONE!"
 
