@@ -39,7 +39,7 @@ mediakit
 Y
 EOF
 echo " "
-usermod -a -G adm,dialout,fax,cdrom,floppy,tape,dip,video,plugdev,fuse mk
+usermod -a -G adm,dialout,fax,cdrom,floppy,tape,dip,video,plugdev mk
 sudo cp scripts/resethomedir.sh /etc/init.d/
 chmod 777 /etc/init.d/resethomedir.sh
 sudo update-rc.d resethomedir.sh defaults
