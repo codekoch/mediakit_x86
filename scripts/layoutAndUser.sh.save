@@ -45,12 +45,8 @@ chmod 777 /etc/init.d/resethomedir.sh
 sudo update-rc.d resethomedir.sh defaults
 sudo /etc/init.d/resethomedir.sh save
 
-sudo apt-get install xubuntu-desktop
-sudo cp logo.jpg /usr/share/wallpapers
-sudo chmod 777 /usr/share/wallpapers/logo.jpg
-sudo xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitor0/image-path --set /usr/share/wallpapers/logo.jpg
-
-yellow_msg "->DONE!"
+sudo apt-get install imagemagick
+display  -window root Bild.jpg 
 
 
 exit

@@ -14,14 +14,29 @@ function blue_msg() {
 echo -e "\\033[34;1m${@}\033[0m"
 }
 
-version=`git tag | tail -1`
-debiansystems=`command -v apt-get`
-if [ -z $debiansystems ]; then
-  red_msg "This install script works only on debian like systems (Debian, XUbuntu, Ubuntu etc.) with apt-get command!"  
+function getVersion() {
+version=`uname -a | grep -i "Ubuntu"`
+if  [ -n "$version" ]; then
+  version="ubuntu"
+  return
+fi
+version=`uname -a | grep -i "Debian"`
+if [ -n "$version" ]; then
+  version="debian"
+  return
+fi
+}
+
+version=``
+getVersion
+if [ -z $version ]; then
+  red_msg "This install script works only on debian like systems (Debian, XUbuntu, Ubuntu etc.)!"  
   exit
 fi 
 
-yellow_msg "Installing mediakit_x86 Version $version..."
+yellow_msg "Installing mediakit_x86 on $version system..."
+
+exit
 
 green_msg "install and configure everything..."
 
