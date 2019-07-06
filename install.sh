@@ -36,15 +36,13 @@ fi
 
 yellow_msg "Installing mediakit_x86 on $version system..."
 
-exit
+
 
 green_msg "install and configure everything..."
 
 ######## install mediakit layout and user
 yellow_msg "-install mediakit layout and mediakit user..."
 sudo scripts/layoutAndUser.sh
-
-exit
 
 ######## install router and miracast ability
 yellow_msg "-install router and miracast ability..."
