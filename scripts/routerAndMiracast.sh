@@ -11,8 +11,8 @@ sudo apt-get install -y libudev-dev
 sudo apt-get install -y libsystemd-dev
 sudo apt-get install -y libusb-dev
 sudo apt-get install -y cmake 
-cp ./miraclecast/res/org.freedesktop.miracle.conf to /etc/dbus-1/system.d/
-cd ./miracalecast
+sudo cp ./miraclecast/res/org.freedesktop.miracle.conf to /etc/dbus-1/system.d/
+cd ./miraclecast
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=/usr ..
