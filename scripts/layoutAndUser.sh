@@ -71,10 +71,12 @@ done
 
 #sudo xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s "/usr/share/wallpapers/logo.jpg"
 
-sudo echo 'autologin-user=mk' > /etc/lightdm/lightdm.conf.d/60-autologin.conf
+sudo echo '[Seat:*]' > /etc/lightdm/lightdm.conf.d/60-autologin.conf
+sudo echo 'autologin-user=mk' >> /etc/lightdm/lightdm.conf.d/60-autologin.conf
 sudo echo 'autologin-user-timeout=0' >> /etc/lightdm/lightdm.conf.d/60-autologin.conf
 yellow_msg "->DONE!"
-
+sudo cp ./themes/* usr/share/plymouth/themes/xubuntu-logo/
+sudo update-initramfs -u
 
 exit
 #### setting up mediakit layout
