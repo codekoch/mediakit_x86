@@ -46,9 +46,30 @@ sudo update-rc.d resethomedir.sh defaults
 sudo /etc/init.d/resethomedir.sh save
 
 sudo apt-get install xubuntu-desktop
-sudo cp logo.jpg /usr/share/wallpapers
-sudo chmod 777 /usr/share/wallpapers/logo.jpg
-sudo xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s "/usr/share/wallpapers/logo.jpg"
+
+#sudo cp logo.jpg /usr/share/wallpapers
+#sudo chmod 777 /usr/share/wallpapers/logo.jpg
+
+backgrounds=`ls /usr/share/xfce4/backdrops/*.jpg`
+for file in $backgrounds
+do
+sudo cp ./logo.jpg $file
+done
+backgrounds=`ls /usr/share/xfce4/backdrops/*.png`
+for file in $backgrounds
+do
+sudo cp ./logo.png $file
+done
+
+backgrounds=`ls /usr/share/xfce4/backdrops/*.svg`
+for file in $backgrounds
+do
+sudo cp ./logo.svg $file
+done
+
+
+
+#sudo xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s "/usr/share/wallpapers/logo.jpg"
 
 sudo echo 'autologin-user=BENUTZERNAME' > /etc/lightdm/lightdm.conf.d/60-autologin.conf
 sudo echo 'autologin-user-timeout=0' >> /etc/lightdm/lightdm.conf.d/60-autologin.conf
