@@ -79,30 +79,4 @@ sudo cp ./themes/* usr/share/plymouth/themes/xubuntu-logo/
 sudo update-initramfs -u
 
 exit
-#### setting up mediakit layout
-yellow_msg "->copying layout files..."
-#### menu launch button
-sudo cp sources/usr/share/raspberrypi-artwork/launch.png /usr/share/raspberrypi-artwork/ 
-
-#### splashscreen at startup
-sudo cp sources/usr/share/plymouth/themes/pix/splash.png /usr/share/plymouth/themes/pix/ 
-
-#### show mediakit version on splashscreen at startup
-sudo cp sources/usr/share/plymouth/themes/pix/pix.script /usr/share/plymouth/themes/pix/
-
-#### desktop background (mediakit logo)
-sudo cp sources/usr/share/rpd-wallpaper/logo.jpg /usr/share/rpd-wallpaper/
-
-#### desktop background (loading mediakit logo)
-sudo cp sources/usr/share/rpd-wallpaper/loading.jpg /usr/share/rpd-wallpaper/
-
-
-#### all desktop settings and icon arrangements
-sudo cp -R sources/home/mk /home/
-
-#### give directories to user mk
-sudo chown -R mk:mk /home/mk
-
-#### copying all mediakit desktop icons
-sudo cp sources/usr/share/pixmaps/* /usr/share/pixmaps/
 

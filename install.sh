@@ -47,7 +47,7 @@ sudo scripts/layoutAndUser.sh
 ######## install router and miracast ability
 yellow_msg "-install router and miracast ability..."
 scripts/routerAndMiracast.sh
-
+exit
 ######## install update ability
 yellow_msg "-install update ability..."
 
