@@ -45,36 +45,19 @@ yellow_msg "-install mediakit layout and mediakit user..."
 sudo scripts/layoutAndUser.sh
 
 ######## install router and miracast ability
-yellow_msg "-install router and miracast ability..."
-scripts/routerAndMiracast.sh
-exit
+#yellow_msg "-install router and miracast ability..."
+#scripts/routerAndMiracast.sh
+
 ######## install update ability
-yellow_msg "-install update ability..."
+#yellow_msg "-install update ability..."
 
 ######## install startup and mediakit scripts
-yellow_msg "-install startup and mediakit scripts..."
-scripts/mediakitScripts.sh
+#yellow_msg "-install startup and mediakit scripts..."
+#scripts/mediakitScripts.sh
 
 ######## install server ability
-yellow_msg "-install server functions..."
-scripts/server.sh
-
-#### Workspace
-yellow_msg "->install Workspace"
-#### Fileupload
-yellow_msg "->install Fileupload"
-#### FileBrowser
-yellow_msg "->install FileBrowser"
-#### Guacamole clientless remote desktop
-yellow_msg "->install guacamole clientless remote desktop"
-#### activate ssh
-
-#### install x11VNC Server (disable real vnc server)
-
-#### install smb server
-
-######## install mediakit selfhealing abitily
-yellow_msg "-install mediakit selfhealing ability"
+#yellow_msg "-install server functions..."
+#scripts/server.sh
 
 ######## install some useful programs
 yellow_msg "-install some useful programs"
@@ -88,7 +71,7 @@ scripts/programs.sh
 #### ballerburg
 #### simplescreenrecorder
 #### youtube-dl
-
+exit
 ######## copying sudoers file to give all necessary rights to user mk
 yellow_msg "-copying sudoers file to give all necessary rights to user mk"
 sudo cp sources/etc/sudoers /etc/
