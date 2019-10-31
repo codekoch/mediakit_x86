@@ -27,6 +27,8 @@ sudo apt-get install -y geogebra
 sudo apt-get install -y youtube-dl
 sudo apt-get install -y simplescreenrecorder
 sudo apt-get install -y ballerburg
+sudo apt-get install -y python-pip
+
 
 #### Netbeans
 wget https://www-us.apache.org/dist/incubator/netbeans/incubating-netbeans/incubating-11.0/incubating-netbeans-11.0-bin.zip 
