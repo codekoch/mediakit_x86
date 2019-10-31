@@ -44,17 +44,24 @@ echo 'Categories=GNOME;Application;Development;' >> /usr/share/applications/netb
 echo 'Terminal=false' >> /usr/share/applications/netbeans.desktop
 echo 'StartupNotify=true' >> /usr/share/applications/netbeans.desktop
 
+#### VirtualBox
+# Download and trust lucas' GPG key
+wget -O - https://db.debian.org/fetchkey.cgi?fingerprint=FEDEC1CB337BCF509F43C2243914B532F4DFBE99 | apt-key add
+# add the repository
+echo 'deb https://people.debian.org/~lucas/virtualbox-buster/ ./' > /etc/apt/sources.list.d/virtualbox-unofficial.list
+# Update and install virtualbox
+apt update
+apt install -y virtualbox
+# Start virtualbox manually (I'm not sure why this is needed)
+systemctl start virtualbox
+
 #### Openboard
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install -y flathub ch.openboard.OpenBoard
 
-
 #### dvd support
 sudo apt-get install -y libdvd-pkg libdvdnav4
 sudo dpkg-reconfigure libdvd-pkg
-
-
-
 
 #### instal guacamole clientless remote desktop
 #sudo apt-get purge -y realvnc*
@@ -89,5 +96,3 @@ sudo dpkg-reconfigure libdvd-pkg
 #sudo chmod 777 /home/mk/.config/autostart/x11vnc.desktop
 #sudo cp sources/var/lib/jetty9/webapps/guacamole.war /var/lib/jetty9/webapps/
 #sudo cp sources/var/lib/jetty9/webapps/root/index.html /var/lib/jetty9/webapps/root/
-
-
