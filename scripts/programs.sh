@@ -18,27 +18,43 @@ echo -e "\\033[34;1m${@}\033[0m"
 sudo apt-get update
 sudo apt-get -y upgrade
 
-######## install needed programs
+######## install needed basic programs
+sudo apt -y install wget unzip
 sudo apt-get install -y imagemagick
 sudo apt-get install -y qrencode
 sudo apt-get install -y flatpak
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install -y flathub ch.openboard.OpenBoard
 sudo apt-get install -y geogebra
 sudo apt-get install -y youtube-dl
 sudo apt-get install -y simplescreenrecorder
 sudo apt-get install -y ballerburg
 
+#### Netbeans
+wget https://www-us.apache.org/dist/incubator/netbeans/incubating-netbeans/incubating-11.0/incubating-netbeans-11.0-bin.zip 
+unzip incubating-netbeans-11.0-bin.zip
+sudo mv netbeans/ /opt/
+echo 'export PATH="$PATH:/opt/netbeans/bin/"' >> /etc/bash.bashrc
+echo '[Desktop Entry]' > /usr/share/applications/netbeans.desktop
+echo 'Name=Netbeans IDE' >> /usr/share/applications/netbeans.desktop
+echo 'Comment=Netbeans IDE' >> /usr/share/applications/netbeans.desktop
+echo 'Type=Application' >> /usr/share/applications/netbeans.desktop
+echo 'Encoding=UTF-8' >> /usr/share/applications/netbeans.desktop
+echo 'Exec=/opt/netbeans/bin/netbeans' >> /usr/share/applications/netbeans.desktop
+echo 'Icon=/opt/netbeans/nb/netbeans.png' >> /usr/share/applications/netbeans.desktop
+echo 'Categories=GNOME;Application;Development;' >> /usr/share/applications/netbeans.desktop
+echo 'Terminal=false' >> /usr/share/applications/netbeans.desktop
+echo 'StartupNotify=true' >> /usr/share/applications/netbeans.desktop
+
+#### Openboard
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install -y flathub ch.openboard.OpenBoard
+
+
 #### dvd support
 sudo apt-get install -y libdvd-pkg libdvdnav4
 sudo dpkg-reconfigure libdvd-pkg
 
-#### parsec
-#wget https://s3.amazonaws.com/parsec-build/package/parsec-rpi.deb
-#sudo dpkg -i parsec-rpi.deb
-#sudo apt-get install -y xboxdrv
-#sudo cp sources/usr/share/applications/parsec.desktop /usr/share/applications/
-#sudo chmod 755 /usr/share/applications/parsec.desktop
+
+
 
 #### instal guacamole clientless remote desktop
 #sudo apt-get purge -y realvnc*
