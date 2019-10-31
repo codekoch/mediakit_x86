@@ -62,8 +62,8 @@ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
 sudo flatpak install -y flathub ch.openboard.OpenBoard
 
 #### dvd support
-sudo apt-get install -y libdvd-pkg libdvdnav4
-sudo dpkg-reconfigure libdvd-pkg
+#sudo apt-get install -y libdvd-pkg libdvdnav4
+#sudo dpkg-reconfigure libdvd-pkg
 
 #### instal guacamole clientless remote desktop
 #sudo apt-get purge -y realvnc*
