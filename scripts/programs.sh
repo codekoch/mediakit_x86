@@ -30,6 +30,7 @@ sudo apt-get install -y ballerburg
 sudo apt-get install -y python-pip
 sudo apt-get install -y nodejs
 sudo apt-get install -y feh
+sudo apt-get install -y gparted
 
 
 #### Chrome
