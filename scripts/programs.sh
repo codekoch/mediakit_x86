@@ -70,7 +70,7 @@ sudo apt-get install -y dkms
 sudo mkdir /a
 git clone https://github.com/Tomas-M/linux-live
 sudo  sed -i 's/LIVEKITNAME="linux"/LIVEKITNAME="mediakit"/g' linux-live/config
-sudo  sed -i 's/LIVEKITDATA=/tmp/$LIVEKITNAME-data-$$/LIVEKITDATA=/a/$LIVEKITNAME-data-$$/g' linux-live/config
+sudo  sed -i 's|LIVEKITDATA=/tmp|LIVEKITDATA=/a|/g' linux-live/config
 
 #### dvd support
 #sudo apt-get install -y libdvd-pkg libdvdnav4
