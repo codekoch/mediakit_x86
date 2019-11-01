@@ -8,5 +8,7 @@ see: http://mediakit.education/x86.php or https://github.com/codekoch/mediakit_R
 > git clone https://github.com/codekoch/mediakit_x86
 4. Start the install shellscript as root 
 > cd mediakit_x86
+
 > su
+
 > ./install.sh
