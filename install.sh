@@ -27,10 +27,10 @@ if [ -n "$version" ]; then
 fi
 }
 
-version=``
+version=`debian`
 getVersion
 if [ -z $version ]; then
-  red_msg "This install script works only on debian like systems (Debian, XUbuntu, Ubuntu etc.)!"  
+  red_msg "This install script works only on debian systems!"  
   exit
 fi 
 
@@ -48,9 +48,6 @@ sudo scripts/layoutAndUser.sh
 #yellow_msg "-install router and miracast ability..."
 #scripts/routerAndMiracast.sh
 
-######## install update ability
-#yellow_msg "-install update ability..."
-
 ######## install startup and mediakit scripts
 #yellow_msg "-install startup and mediakit scripts..."
 #scripts/mediakitScripts.sh
@@ -62,30 +59,6 @@ sudo scripts/layoutAndUser.sh
 ######## install some useful programs
 yellow_msg "-install some useful programs"
 scripts/programs.sh
-#### openboard
-#### python
-#### geogebra
-#### pinta
-#### java
-#### gparted
-#### ballerburg
-#### simplescreenrecorder
-#### youtube-dl
-exit
-######## copying sudoers file to give all necessary rights to user mk
-yellow_msg "-copying sudoers file to give all necessary rights to user mk"
-sudo cp sources/etc/sudoers /etc/
-#### create a copy of /home/mk which is used by restoreMkProfile.sh
-yellow_msg "-create copy of /home/mk"
-sudo chown -R mk:mk /home/mk
-sudo chmod -R 755 /home/mk
-sudo mkdir /home/pi/backup
-sudo cp -R /home/mk /home/pi/backup/
-
-#### set Version
-sudo  sed -i 's/my_image = Image.Text(\"v.*$/my_image = Image\.Text(\"'$version' Copyright Olaf Koch \& Simon Zander 2018\"\, 1\, 1\, 1)\;/g' /usr/share/plymouth/themes/pix/pix.script
 
 green_msg "Done! A restart is necessary!"
 green_msg "sudo shutdown -r now" 
-blue_msg "(its recommended to make a copy of the current berryboot system including all data"
-blue_msg "by this you can allways return to a fresh mediakit install ...)"

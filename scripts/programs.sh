@@ -61,6 +61,17 @@ systemctl start virtualbox
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install -y flathub ch.openboard.OpenBoard
 
+#### Linux Live Kit
+sudo apt-get install -y squashfs-tools
+sudo apt-get install -y genisoimage 
+sudo apt-get install -y zip 
+sudo apt-get install -y aufs-dkms 
+sudo apt-get install -y dkms
+sudo mkdir /a
+git clone https://github.com/Tomas-M/linux-live
+sudo  sed -i 's/LIVEKITNAME="linux"/LIVEKITNAME="mediakit"/g' linux-live/config
+sudo  sed -i 's/LIVEKITDATA=/tmp/$LIVEKITNAME-data-$$/LIVEKITDATA=/a/$LIVEKITNAME-data-$$/g' linux-live/config
+
 #### dvd support
 #sudo apt-get install -y libdvd-pkg libdvdnav4
 #sudo dpkg-reconfigure libdvd-pkg
