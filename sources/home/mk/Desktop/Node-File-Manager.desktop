@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Node-File-Manager
+Comment=
+Exec=/usr/bin/startNodeFileManager.sh
+Icon=xfsm-reboot
+Path=
+Terminal=true
+StartupNotify=true

@@ -28,6 +28,13 @@ sudo apt-get install -y youtube-dl
 sudo apt-get install -y simplescreenrecorder
 sudo apt-get install -y ballerburg
 sudo apt-get install -y python-pip
+sudo apt-get install -y nodejs
+sudo apt-get install -y feh
+
+
+#### Chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
 
 #### Netbeans
@@ -61,6 +68,7 @@ systemctl start virtualbox
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install -y flathub ch.openboard.OpenBoard
 sudo cp openboard.png /usr/share/pixmaps/
+sudo cp sources/home/mk/Desktop/* /usr/share/applications/
 echo '[Desktop Entry]' > /usr/share/applications/openboard.desktop
 echo 'Name=OpenBoard' >> /usr/share/applications/openboard.desktop
 echo 'Comment=OpenBoard' >> /usr/share/applications/openboard.desktop
@@ -84,9 +92,15 @@ git clone https://github.com/Tomas-M/linux-live
 sudo  sed -i 's/LIVEKITNAME="linux"/LIVEKITNAME="mediakit"/g' linux-live/config
 sudo  sed -i 's|LIVEKITDATA=/tmp|LIVEKITDATA=/a|/g' linux-live/config
 
-#### dvd support
-#sudo apt-get install -y libdvd-pkg libdvdnav4
-#sudo dpkg-reconfigure libdvd-pkg
+#### node-file-manager
+sudo cp scripts/startNodeFileManager.sh /usr/bin
+sudo chmod -R 755 /usr/bin/startNodeFileManager.sh
+sudo cp -R sources/usr/bin/node-file-manager /usr/bin/
+sudo chmod -R 755 /usr/bin/node-file-manager
+sudo cp -R sources/usr/lib/node_modules /usr/lib/
+sudo chmod -R 755 /usr/lib/node_modules
+sudo cp sources/home/mk/Desktop/Node-File-Manager.desktop /usr/share/applications/
+
 
 #### instal guacamole clientless remote desktop
 #sudo apt-get purge -y realvnc*
