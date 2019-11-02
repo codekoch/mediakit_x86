@@ -91,7 +91,7 @@ sudo apt-get install -y dkms
 sudo mkdir /a
 git clone https://github.com/Tomas-M/linux-live
 sudo  sed -i 's/LIVEKITNAME="linux"/LIVEKITNAME="mediakit"/g' linux-live/config
-sudo  sed -i 's|LIVEKITDATA=/tmp|LIVEKITDATA=/a|/g' linux-live/config
+sudo  sed -i 's|LIVEKITDATA=/tmp|LIVEKITDATA=/a|g' linux-live/config
 
 #### node-file-manager
 sudo cp scripts/startNodeFileManager.sh /usr/bin
