@@ -1,5 +1,5 @@
 #!/bin/bash
-IP=`/sbin/ip route get 1 | awk '{print $NF;exit}' | head -1`
+IP=`/sbin/ip route get 1 | awk '{print $7}' | head -1`
 qrencode -s 10 -o serverQRCode.png "http://$IP:8080"
 mkdir ~/Uploads
 thunar ~/Uploads &
