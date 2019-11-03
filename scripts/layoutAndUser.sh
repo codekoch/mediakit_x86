@@ -31,6 +31,7 @@ passwd
 sudo cp logo.jpg /usr/share/pixmaps/
 sudo chmod 755 /usr/share/pixmaps/logo.jpg
 sudo echo '#!/bin/bash' > /usr/bin/mkLoginScript.sh
+sudo echo 'sleep 2' >> /usr/bin/mkLoginScript.sh
 sudo echo 'xfconf-query --channel xfce4-desktop --list | grep last-image | while read path; do' >> /usr/bin/mkLoginScript.sh
 sudo echo '    xfconf-query --channel xfce4-desktop --property $path --set /usr/share/pixmaps/logo.jpg' >> /usr/bin/mkLoginScript.sh
 sudo echo 'done' >> /usr/bin/mkLoginScript.sh
@@ -56,10 +57,10 @@ mkdir /home/mk/.config
 mkdir /home/mk/.config/autostart
 touch /home/mk/.config/autostart/loginscript.desktop
 echo "[Desktop Entry]" > /home/mk/.config/autostart/loginscript.desktop
-echo "Name=setMediakitBackground.sh" >> /home/mk/.config/autostart/loginscript.desktop
+echo "Name=mkLoginScript.sh" >> /home/mk/.config/autostart/loginscript.desktop
 echo "Exec=/usr/bin/mkLoginScript.sh">> /home/mk/.config/autostart/loginscript.desktop
-echo "Type=application ">> /home/mk/.config/autostart/loginscript.desktop
-echo "Terminal=true">> /home/mk/.config/autostart/loginscript.desktop
+echo "Type=Application ">> /home/mk/.config/autostart/loginscript.desktop
+echo "Terminal=false">> /home/mk/.config/autostart/loginscript.desktop
 chmod 755 /home/mk/.config/autostart/loginscript.desktop
 
 #### set group rights
