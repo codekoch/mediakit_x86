@@ -30,10 +30,12 @@ passwd
 #### set new mediakit background image for all users 
 sudo cp logo.jpg /usr/share/pixmaps/
 sudo chmod 755 /usr/share/pixmaps/logo.jpg
-sudo echo 'xfconf-query --channel xfce4-desktop --list | grep last-image | while read path; do' > /usr/bin/setMediakitBackground.sh
-sudo echo '    xfconf-query --channel xfce4-desktop --property $path --set /usr/share/pixmaps/logo.jpg' >> /usr/bin/setMediakitBackground.sh
-sudo echo 'done' >> /usr/bin/setMediakitBackground.sh
-sudo chmod 755 /usr/bin/setMediakitBackground.sh
+sudo echo '#!/bin/bash' > /usr/bin/mkLoginScript.sh
+sudo echo 'xfconf-query --channel xfce4-desktop --list | grep last-image | while read path; do' >> /usr/bin/mkLoginScript.sh
+sudo echo '    xfconf-query --channel xfce4-desktop --property $path --set /usr/share/pixmaps/logo.jpg' >> /usr/bin/mkLoginScript.sh
+sudo echo 'done' >> /usr/bin/mkLoginScript.sh
+sudo chmod 755 /usr/bin/mkLoginScript.sh
+
 
 
 #### add user mk
@@ -48,45 +50,33 @@ mediakit
 
 Y
 EOF
-echo " "
+
+#### build autostart for mkLoginScript.sh
+mkdir /home/mk/.config/autostart
+touch /home/mk/.config/autostart/loginscript.desktop
+echo "[Desktop Entry]" > /home/mk/.config/autostart/loginscript.desktop
+echo "Name=setMediakitBackground.sh" >> /home/mk/.config/autostart/loginscript.desktop
+echo "Exec=/usr/bin/mkLoginScript.sh">> /home/mk/.config/autostart/loginscript.desktop
+echo "Type=application ">> /home/mk/.config/autostart/loginscript.desktop
+echo "Terminal=true">> /home/mk/.config/autostart/loginscript.desktop
+chmod 755 /home/mk/.config/autostart/loginscript.desktop
+
+#### set group rights
 usermod -a -G adm,dialout,fax,cdrom,floppy,tape,dip,video,plugdev mk
+
+#### set selfhealing home of user mk
 sudo cp scripts/resethomedir.sh /etc/init.d/
 chmod 777 /etc/init.d/resethomedir.sh
 sudo update-rc.d resethomedir.sh defaults
 sudo /etc/init.d/resethomedir.sh save
 
-#sudo apt-get install xubuntu-desktop
 
-#sudo cp logo.jpg /usr/share/wallpapers
-#sudo chmod 777 /usr/share/wallpapers/logo.jpg
-
-#backgrounds=`ls /usr/share/xfce4/backdrops/*.jpg`
-#for file in $backgrounds
-#do
-#sudo cp ./logo.jpg $file
-#done
-#backgrounds=`ls /usr/share/xfce4/backdrops/*.png`
-#for file in $backgrounds
-#do
-#sudo cp ./logo.png $file
-#done
-
-#backgrounds=`ls /usr/share/desktop-base/active-theme/wallpaper/contents/images/*.svg`
-#for file in $backgrounds
-#do
-#sudo cp ./logo.svg $file
-#sudo chmod 755 $file
-#done
-
-#sudo xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s "/usr/share/wallpapers/logo.jpg"
+#### set autologin of user mk
 sudo mkdir /etc/lightdm/lightdm.conf.d//
 sudo echo '[Seat:*]' > /etc/lightdm/lightdm.conf.d/60-autologin.conf
 sudo echo 'autologin-user=mk' >> /etc/lightdm/lightdm.conf.d/60-autologin.conf
 sudo echo 'autologin-user-timeout=0' >> /etc/lightdm/lightdm.conf.d/60-autologin.conf
-sudo echo 'session-wrapper=/usr/bin/setMediakitBackground.sh'
-yellow_msg "->DONE!"
-#sudo cp ./themes/* /usr/share/plymouth/themes/xubuntu-logo/
-#sudo update-initramfs -u
 
-#exit
+#### 
+yellow_msg "->DONE!"
 
