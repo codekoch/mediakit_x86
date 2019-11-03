@@ -2,7 +2,7 @@
 ## digitalisation of schools - simple, independent, reliable, economical 
 ![mediakit](http://mediakit.education/images/PenDisplay_Nuc2.jpg)
 
-convert every x86 computer into a "mediakit" by starting a shellskript after a fresh debian install...
+convert almost every x86 computer into a "mediakit" by starting a shellskript after a fresh debian install...
 This is what you get:
 - Selfhealing account (all changes done by user mk are deleted at startup)
 - Many useful programs for schools (Openboard, Geogebra, Netbeans with Java support, python pip, Virtual-Box, VLC-Player etc.)
