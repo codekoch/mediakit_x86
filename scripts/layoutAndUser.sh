@@ -30,10 +30,10 @@ passwd
 #### set new mediakit background image for all users 
 sudo cp logo.jpg /usr/share/pixmaps/
 sudo chmod 755 /usr/share/pixmaps/logo.jpg
-sudo echo 'xfconf-query --channel xfce4-desktop --list | grep last-image | while read path; do' >> /etc/rc.local
-sudo echo '    xfconf-query --channel xfce4-desktop --property $path --set /usr/share/pixmaps/logo.jpg' >> /etc/rc.local
-sudo echo 'done' >> /etc/rc.local
-
+sudo echo 'xfconf-query --channel xfce4-desktop --list | grep last-image | while read path; do' > /usr/bin/setMediakitBackground.sh
+sudo echo '    xfconf-query --channel xfce4-desktop --property $path --set /usr/share/pixmaps/logo.jpg' >> /usr/bin/setMediakitBackground.sh
+sudo echo 'done' >> /usr/bin/setMediakitBackground.sh
+sudo chmod 755 /usr/bin/setMediakitBackground.sh
 
 
 #### add user mk
@@ -83,6 +83,7 @@ sudo mkdir /etc/lightdm/lightdm.conf.d//
 sudo echo '[Seat:*]' > /etc/lightdm/lightdm.conf.d/60-autologin.conf
 sudo echo 'autologin-user=mk' >> /etc/lightdm/lightdm.conf.d/60-autologin.conf
 sudo echo 'autologin-user-timeout=0' >> /etc/lightdm/lightdm.conf.d/60-autologin.conf
+sudo echo 'session-wrapper=/usr/bin/setMediakitBackground.sh'
 yellow_msg "->DONE!"
 #sudo cp ./themes/* /usr/share/plymouth/themes/xubuntu-logo/
 #sudo update-initramfs -u

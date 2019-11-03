@@ -24,6 +24,7 @@ sudo apt-get install -y imagemagick
 sudo apt-get install -y qrencode
 sudo apt-get install -y flatpak
 sudo apt-get install -y geogebra
+sudo apt-get install -y gimp
 sudo apt-get install -y youtube-dl
 sudo apt-get install -y simplescreenrecorder
 sudo apt-get install -y ballerburg
