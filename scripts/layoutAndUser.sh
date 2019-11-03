@@ -52,6 +52,7 @@ Y
 EOF
 
 #### build autostart for mkLoginScript.sh
+mkdir /home/mk/.config
 mkdir /home/mk/.config/autostart
 touch /home/mk/.config/autostart/loginscript.desktop
 echo "[Desktop Entry]" > /home/mk/.config/autostart/loginscript.desktop
