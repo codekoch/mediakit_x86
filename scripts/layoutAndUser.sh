@@ -60,7 +60,7 @@ echo "[Desktop Entry]" > /home/mk/.config/autostart/loginscript.desktop
 echo "Name=mkLoginScript.sh" >> /home/mk/.config/autostart/loginscript.desktop
 echo "Exec=/usr/bin/mkLoginScript.sh">> /home/mk/.config/autostart/loginscript.desktop
 echo "Type=Application ">> /home/mk/.config/autostart/loginscript.desktop
-echo "Terminal=false">> /home/mk/.config/autostart/loginscript.desktop
+echo "Terminal=true">> /home/mk/.config/autostart/loginscript.desktop
 chmod 755 /home/mk/.config/autostart/loginscript.desktop
 
 #### set group rights
