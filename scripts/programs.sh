@@ -77,8 +77,7 @@ echo 'Type=Application' >> /usr/share/applications/openboard.desktop
 echo 'Encoding=UTF-8' >> /usr/share/applications/openboard.desktop
 echo 'Exec=/usr/bin/flatpak run ch.openboard.OpenBoard' >> /usr/share/applications/openboard.desktop
 echo 'Icon=/usr/share/pixmaps/openboard.png' >> /usr/share/applications/openboard.desktop
-echo 'Categories=GNOME;Application;Education;' >> /usr/share/applications/openboard.desktop
-echo 'Terminal=false' >> /usr/share/applications/openboard.desktop
+echo 'Categories=GNOME;Application;Education;' >> /usr/share/applications/openboard.desktopecho 'Terminal=false' >> /usr/share/applications/openboard.desktop
 echo 'StartupNotify=true' >> /usr/share/applications/openboard.desktop
 
 
@@ -92,6 +91,12 @@ sudo mkdir /a
 git clone https://github.com/Tomas-M/linux-live
 sudo  sed -i 's/LIVEKITNAME="linux"/LIVEKITNAME="mediakit"/g' linux-live/config
 sudo  sed -i 's|LIVEKITDATA=/tmp|LIVEKITDATA=/a|g' linux-live/config
+sudo cp -R linux-live /opt/
+sudo chmod -R 755 /opt/linux-live
+sudo echo '#!/bin/bash' > /usr/bin/buildLinuxLive.sh
+sudo echo 'cd /opt/linux-live' >> /usr/bin/buildLinuxLive.sh
+sudo echo './build' >> /usr/bin/buildLinuxLive.sh
+sudo chmod 755 /usr/bin/buildLinuxLive.sh
 
 #### node-file-manager
 sudo cp scripts/startNodeFileManager.sh /usr/bin
