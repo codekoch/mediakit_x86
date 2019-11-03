@@ -7,7 +7,7 @@ This is what you get:
 - Selfhealing account (all changes done by user mk are deleted at startup)
 - Many useful programs for schools (Openboard, Geogebra, Netbeans with Java support, python pip, Virtual-Box, VLC-Player etc.)
 - Up- and Download Nodejs-Server
-- Takeaway system (Export whole system on any external media by full configured Linux-Live-Kit) 
+- Takeaway system (Export whole system on any external media by full configured <a href=https://www.linux-live.org/>Linux-Live-Kit</a>) 
 
 see also: http://mediakit.education/x86.php or https://github.com/codekoch/mediakit_RaspberryPi
 ## Getting Started
