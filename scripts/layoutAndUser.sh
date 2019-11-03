@@ -26,13 +26,13 @@ echo -e "\\033[34;1m${@}\033[0m"
 yellow_msg "->Set password for current user on mediakit (usually 'mediakitadmin'):"
 passwd
 
-backgrounds=`ls /usr/share/desktop-base/active-theme/wallpaper/contents/images/*.svg`
-for file in $backgrounds
-do
-sudo cp ./logo.svg $file
-sudo chmod 755 $file
-done
 
+#### set new mediakit background image for all users 
+sudo cp logo.jpg /usr/share/pixmaps/
+sudo chmod 755 /usr/share/pixmaps/logo.jpg
+sudo echo 'xfconf-query --channel xfce4-desktop --list | grep last-image | while read path; do' >> /etc/rc.local
+sudo echo '    xfconf-query --channel xfce4-desktop --property $path --set /usr/share/pixmaps/logo.jpg' >> /etc/rc.local
+sudo echo 'done' >> /etc/rc.local
 
 
 
