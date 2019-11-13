@@ -1,4 +1,4 @@
-# mediakit_x86 (still experimental)
+# mediakit_x86 
 ## digitalisation of schools - simple, independent, reliable, economical 
 ![mediakit](http://mediakit.education/images/PenDisplay_Nuc2.jpg)
 
@@ -26,7 +26,7 @@ see also: http://mediakit.education/x86.php or https://github.com/codekoch/media
 > ./install.sh
 - Take a coffee (Installation will take some time...)
 - Restart to autologin into the new account
-> ./sudo shutdown -r now
+> sudo shutdown -r now
 - Choose default panel when asked for
 - Customize everything according to your needs
 - Open a terminal and save the current account settings
