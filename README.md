@@ -25,7 +25,19 @@ see also: http://mediakit.education/x86.php or https://github.com/codekoch/media
 
 > ./install.sh
 - Take a coffee (Installation will take some time...)
+- Restart to autologin into the new account
+> ./sudo shutdown -r now
+- Choose default panel when asked for
+
+- Customize everything according to your needs
+
+- Open a terminal and save the current account settings
+> su
+> sudo /etc/init.d/resethomedir.sh save
+- Have fun with your new mediakit 
 ## Hints
+- All changes done by user mk are deleted at startup
+- If you want to keep some changes save the account settings again as described above in the last step of installation
 - Use Node-File-Manager to start a server, which can be reached by any device in the same network. 
 - To build a Takeaway System:
     - >su
