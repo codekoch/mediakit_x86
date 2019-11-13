@@ -31,6 +31,7 @@ see also: http://mediakit.education/x86.php or https://github.com/codekoch/media
 - Customize everything according to your needs
 - Open a terminal and save the current account settings
 > su
+
 > sudo /etc/init.d/resethomedir.sh save
 - Have fun with your new mediakit 
 ## Hints
