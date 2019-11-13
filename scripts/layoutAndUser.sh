@@ -78,6 +78,8 @@ sudo mkdir /etc/lightdm/lightdm.conf.d//
 sudo echo '[Seat:*]' > /etc/lightdm/lightdm.conf.d/60-autologin.conf
 sudo echo 'autologin-user=mk' >> /etc/lightdm/lightdm.conf.d/60-autologin.conf
 sudo echo 'autologin-user-timeout=0' >> /etc/lightdm/lightdm.conf.d/60-autologin.conf
+sudo echo "# don't sleep the screen" >> /etc/lightdm/lightdm.conf.d/60-autologin.conf
+sudo echo "xserver-command=X -s 0 dpms">> /etc/lightdm/lightdm.conf.d/60-autologin.conf
 
 #### 
 yellow_msg "->DONE!"
