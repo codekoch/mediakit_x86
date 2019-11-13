@@ -28,9 +28,7 @@ see also: http://mediakit.education/x86.php or https://github.com/codekoch/media
 - Restart to autologin into the new account
 > ./sudo shutdown -r now
 - Choose default panel when asked for
-
 - Customize everything according to your needs
-
 - Open a terminal and save the current account settings
 > su
 > sudo /etc/init.d/resethomedir.sh save
