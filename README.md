@@ -29,10 +29,12 @@ see also: http://mediakit.education/x86.php or https://github.com/codekoch/media
 > sudo shutdown -r now
 - Choose default panel when asked for
 - Customize everything according to your needs
-- Open a terminal and save the current account settings
+- Open a terminal, save the current account settings and restart system
 > su
 
 > sudo /etc/init.d/resethomedir.sh save
+
+> sudo shutdown -r now
 - Have fun with your new mediakit 
 ## Hints
 - All changes done by user mk are deleted at startup
